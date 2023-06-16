@@ -1,8 +1,8 @@
-import { Sequelize } from "sequelize";
+const { Sequelize } = require("sequelize");
 
 const sequelize = new Sequelize("jdTestDb", "admin", "password", {
   host: "localhost",
   dialect: "mysql",
 });
 
-export default sequelize;
+module.exports = sequelize;

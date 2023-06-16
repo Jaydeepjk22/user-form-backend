@@ -1,7 +1,7 @@
-import { User } from "../models/index.js";
-import nodemailer from "nodemailer";
-import jwt from "jsonwebtoken";
-import sequelize from "../config/database.js";
+const nodemailer = require("nodemailer");
+const jwt = require("jsonwebtoken");
+const sequelize = require("../config/database.js");
+const User = require("../models/User.js");
 
 const emailSender = "testjd485@gmail.com";
 const emailPassword = "Test@123";
@@ -64,4 +64,4 @@ const getUsers = async (req, res) => {
   }
 };
 
-export { createUser, getUsers };
+module.exports = { createUser, getUsers };
