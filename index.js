@@ -1,6 +1,6 @@
-import express from "express";
-import userRoutes from "./routes/userRoutes.js";
-import { ApolloServer, gql } from "apollo-server-express";
+const express = require("express");
+const userRoutes = require("./routes/userRoutes.js");
+const { ApolloServer, gql } = require("apollo-server-express");
 
 const app = express();
 
@@ -8,7 +8,7 @@ app.use(express.json());
 
 app.use("/users", userRoutes);
 
-const typDefs = gql`
+const typeDefs = gql`
   type User {
     id: ID!
     name: String!
@@ -65,7 +65,15 @@ const resolvers = {
 };
 
 const server = new ApolloServer({ typeDefs, resolvers });
-server.applyMiddleware({ app });
+
+async function startServer() {
+  await server.start();
+  server.applyMiddleware({ app });
+}
+
+startServer().catch((error) => {
+  console.log("Failed to start Apollo Server:", error);
+});
 
 app.listen(3000, () => {
   console.log("Server started on http://localhost:3000/graphql");
