@@ -1,0 +1,28 @@
+{
+  "name": "user-form-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jaydeepjk22/user-form-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jaydeepjk22/user-form-backend/issues"
+  },
+  "homepage": "https://github.com/Jaydeepjk22/user-form-backend#readme",
+  "dependencies": {
+    "apollo-server-express": "^3.12.0",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mysql2": "^3.3.5",
+    "nodemailer": "^6.9.3",
+    "sequelize": "^6.32.0"
+  }
+}
