@@ -3,8 +3,8 @@ const jwt = require("jsonwebtoken");
 const sequelize = require("../config/database.js");
 const User = require("../models/User.js");
 
-const emailSender = "testjd485@gmail.com";
-const emailPassword = "Test@123";
+// const emailSender = "";
+// const emailPassword = "";
 
 const createUser = async (req, res) => {
   let transaction;
