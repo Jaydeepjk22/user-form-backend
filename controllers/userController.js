@@ -18,17 +18,27 @@ const createUser = async (req, res) => {
       { transaction }
     );
 
+    let testAccount = await nodemailer.createTestAccount();
     // Send email to the form submitter
-    const transporter = nodemailer.createTransport({
-      service: "Gmail",
+    // const transporter = await nodemailer.createTransport({
+    //   service: "Gmail",
+    //   auth: {
+    //     user: emailSender,
+    //     pass: emailPassword,
+    //   },
+    // });
+
+    let transporter = await nodemailer.createTransport({
+      host: "smtp.ethereal.email",
+      port: 587,
       auth: {
-        user: emailSender,
-        pass: emailPassword,
+        user: "heaven.olson98@ethereal.email", // ethereal generated
+        pass: "8fye7VAVfqT7bTFNtw", // ethereal generated
       },
     });
 
     const mailOptions = {
-      from: emailSender,
+      from: '"Register Form "<testForm@testAccount.com>',
       to: email,
       subject: "Form Submission Confirmation",
       text: "Thank you for submitting the form!",
@@ -36,7 +46,7 @@ const createUser = async (req, res) => {
 
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
-        console.log(error);
+        console.log("Error in sending email  " + error);
       } else {
         console.log("Email sent: " + info.response);
       }
