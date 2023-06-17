@@ -1,10 +1,12 @@
 const express = require("express");
 const userRoutes = require("./routes/userRoutes.js");
 const { ApolloServer, gql } = require("apollo-server-express");
+const cors = require("cors");
 
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 app.use("/users", userRoutes);
 
