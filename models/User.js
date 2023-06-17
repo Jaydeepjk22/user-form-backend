@@ -21,7 +21,7 @@ const User = sequelize.define("User", {
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
-      is: /^\+[1-9]\d{1,14}$/, // Phone number format validation (e.g., +1234567890)
+      is: /^(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/, // Phone number format validation (e.g., +1234567890)
     },
   },
 });
